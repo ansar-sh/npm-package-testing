@@ -1,0 +1,35 @@
+image: node:6
+
+
+before_script:  
+    # - npm install
+    - export http_proxy=http://10.144.1.10:8080
+    - export https_proxy=http://10.144.1.10:8080
+    - npm install -g npm-run
+    - npm install --save debug-log
+
+cache:  
+  paths:
+     - node_modules/
+    
+    
+test:node:6:  
+  script:
+      - npm install --save debug-log
+      - npm run build
+      - npm test
+      
+test:node:4:  
+  image: node:4
+  script:
+      - npm install --save debug-log  
+      - npm run build
+      - npm test
+      
+test:node:7:  
+  image: node:7
+  script:
+     - npm install --save debug-log
+     - npm run build
+     - npm test
+    
