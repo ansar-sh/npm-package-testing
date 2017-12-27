@@ -7,8 +7,9 @@
     "npm-run": "bin/npm-run.js"
   },
   "scripts": {
-    "test": "tape test/*.js && npm run lint",
-    "lint": "standard"
+    "deploy": "npm run build&&gh-pages -d build",
+    "build": "npm run build"
+
   },
   "author": "Tim Oxley",
   "license": "MIT",
